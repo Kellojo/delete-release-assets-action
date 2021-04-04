@@ -17,7 +17,9 @@ const octokit = new Octokit({
     auth: sAuthToken,
 });
 
-
+const readPackageJson = function() {
+    return fs.readFileSync('./package.json').toString();
+}
 
 const getReleaseInfos = async function(sOwner, sRepo) {
     const { data } = await octokit.request(`/repos/${sOwner}/${sRepo}/releases`);
@@ -55,7 +57,8 @@ const run = async function() {
 }
 
 try {
-    run();
+    console.log(readPackageJson());
+    //run();
 } catch (error) {
   core.setFailed(error.message);
 }
