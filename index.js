@@ -4,7 +4,7 @@ const { Octokit } = require("@octokit/rest");
 
 const sRepo = github.context.repo.repo;
 const sOwner = github.context.repo.owner
-const sVersion = core.getInput("version");
+const sVersion = core.getInput("version") || readPackageJson();
 const bDeleteOnlyDraft = core.getInput("delete-only-drafts");
 const sAuthToken = core.getInput("github-access-token");
 
