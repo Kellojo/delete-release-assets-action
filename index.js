@@ -9,7 +9,7 @@ const readPackageJson = function() {
 
 const sRepo = github.context.repo.repo;
 const sOwner = github.context.repo.owner
-const sVersion = core.getInput("version") || readPackageJson();
+const sVersion = core.getInput("version") || readPackageJson().version;
 const bDeleteOnlyDraft = core.getInput("delete-only-drafts");
 const sAuthToken = core.getInput("github-access-token");
 
@@ -58,8 +58,7 @@ const run = async function() {
 }
 
 try {
-    console.log(readPackageJson());
-    //run();
+    run();
 } catch (error) {
   core.setFailed(error.message);
 }
