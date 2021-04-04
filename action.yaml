@@ -7,7 +7,7 @@ inputs:
     default: 'true'
   version:
     description: 'Which version should we delete the assets from?'
-    required: true
+    required: false
     default: ''
   github-access-token:
     description: 'The GitHub access token required to delete the assets & discover non released versions'
