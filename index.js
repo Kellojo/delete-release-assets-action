@@ -4,7 +4,15 @@ const { Octokit } = require("@octokit/rest");
 const fs = require('fs');
 
 const readPackageJson = function() {
-    return fs.readFileSync('./package.json').toString();
+    const sFile = fs.readFileSync('./package.json').toString();
+    
+    try {
+        return JSON.parse(sFile);
+    } catch (error) {
+        
+    }
+
+    return null;
 }
 
 const sRepo = github.context.repo.repo;
