@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { Octokit } = require("@octokit/rest");
+const fs = require('fs');
 
 const readPackageJson = function() {
     return fs.readFileSync('./package.json').toString();
