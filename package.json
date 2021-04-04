@@ -1,0 +1,26 @@
+{
+  "name": "delete-release-assets-action",
+  "version": "1.0.0",
+  "description": "A simple GitHub action which deletes all assets attached to a release. It is mainly designed to make sure electron-builder doesn't fail upon a release.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kellojo/delete-release-assets-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kellojo/delete-release-assets-action/issues"
+  },
+  "homepage": "https://github.com/Kellojo/delete-release-assets-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@octokit/rest": "^18.5.2",
+    "dotenv": "^8.2.0"
+  }
+}
