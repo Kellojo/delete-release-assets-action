@@ -2,6 +2,10 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { Octokit } = require("@octokit/rest");
 
+const readPackageJson = function() {
+    return fs.readFileSync('./package.json').toString();
+}
+
 const sRepo = github.context.repo.repo;
 const sOwner = github.context.repo.owner
 const sVersion = core.getInput("version") || readPackageJson();
@@ -17,16 +21,12 @@ const octokit = new Octokit({
     auth: sAuthToken,
 });
 
-const readPackageJson = function() {
-    return fs.readFileSync('./package.json').toString();
-}
 
 const getReleaseInfos = async function(sOwner, sRepo) {
     const { data } = await octokit.request(`/repos/${sOwner}/${sRepo}/releases`);
     const oCurrentRelease = data.find(oRelease => oRelease.tag_name.includes(sVersion));
     return oCurrentRelease;
 }
-
 const run = async function() {
     const oRelease = await getReleaseInfos(sOwner, sRepo);
 
